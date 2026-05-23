@@ -2,7 +2,6 @@ import io.wispforest.helpers.Extensions.fabricModule
 
 plugins {
     id("multiloader-mojmap")
-    id("multiloader-publishing")
 }
 
 architectury {

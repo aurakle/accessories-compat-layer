@@ -6,7 +6,6 @@ import net.fabricmc.loom.task.RemapSourcesJarTask
 
 plugins {
     id("multiloader-base")
-    id("multiloader-publishing")
 }
 
 val mojmapJar = tasks.register<RemapJarTask>("mojmapJar") {
@@ -32,14 +31,6 @@ fun setupTask(targetTask: AbstractRemapJarTask, taskName: String, archiveClassif
     targetTask.targetNamespace = "named"
 
     //targetTask.remapperIsolation = true
-
-    targetTask.mustRunAfter(
-        tasks.named("generateMetadataFileForMavenCommonPublication"),
-        tasks.named("generateMetadataFileForMavenMojmapPublication"),
-        tasks.named("publishMavenCommonPublicationToMavenLocal"),
-        tasks.named("publishMavenCommonPublicationToMavenRepository"),
-        //tasks.named("publishMavenMojmapPublicationToMavenLocal")
-    )
 }
 
 tasks.named("build").configure {
